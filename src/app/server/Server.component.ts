@@ -4,10 +4,14 @@ import { Component } from '@angular/core'; // here @component decorator is known
 
 @Component({
     selector: 'app-server',
-    templateUrl :'./server.compnent.html' 
-
-
+    templateUrl :'./Server.component.html' 
 })
 export class ServerComponent{
+    serverId: number = 10;
+    serverStatus: string = 'Offline';
+
+    getServerStatus() {
+        return this.serverStatus;
+    }
     
     }
