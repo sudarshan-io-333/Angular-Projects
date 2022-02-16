@@ -5,13 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/Server.component';
 import { ServersComponent } from './servers/servers.component' // here we are not adding .ts extention
+import { SuccessAlertComponent } from './Success-alert/Success-alert.component'
+import {WarningAlertComponent} from './Warning-alert/Warning-alert.component'
 // because its added by webpack which bundles our project automatically.
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
-    ServersComponent //now Angular when it runs knows that we have a server 
+    ServersComponent, //now Angular when it runs knows that we have a server 
+    SuccessAlertComponent,
+    WarningAlertComponent
+
   ],
   imports: [
     BrowserModule,
