@@ -4,14 +4,24 @@ import { Component } from '@angular/core'; // here @component decorator is known
 
 @Component({
     selector: 'app-server',
-    templateUrl :'./Server.component.html' 
+    templateUrl: './Server.component.html',
+    styles: [`
+        .online{
+            color:white;
+        }
+    `]
 })
 export class ServerComponent{
     serverId: number = 10;
     serverStatus: string = 'Offline';
 
+    constructor() {
+        this.serverStatus =Math.random()>0.5 ? 'online' : 'offline'
+    }
     getServerStatus() {
         return this.serverStatus;
     }
-    
+    getColor() {
+        return this.serverStatus === 'online' ? 'green' : 'red';
+    }
     }
