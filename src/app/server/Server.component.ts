@@ -14,6 +14,7 @@ import { Component } from '@angular/core'; // here @component decorator is known
 export class ServerComponent{
     serverId: number = 10;
     serverStatus: string = 'Offline';
+    
 
     constructor() {
         this.serverStatus =Math.random()>0.5 ? 'online' : 'offline'
@@ -24,4 +25,5 @@ export class ServerComponent{
     getColor() {
         return this.serverStatus === 'online' ? 'green' : 'red';
     }
-    }
+
+ }
