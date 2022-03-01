@@ -40,40 +40,40 @@ export class ServerElementComponent implements
   @ContentChild('contentParagraph', { static: true }) paragraph: ElementRef;
 
   constructor() {
-    console.log('constructor called');
+    // console.log('constructor called');
   }
   //ngOnChanges takes arguments.its the only hook that does.
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges called!');
-    console.log(changes);
+    // console.log('ngOnChanges called!');
+    // console.log(changes);
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit called');
-    console.log('Text-Content:' + this.header.nativeElement.textContent);
-    console.log('Text Content of Paragraph:' + this.paragraph.nativeElement.textContent);
+    // console.log('ngOnInit called');
+    // console.log('Text-Content:' + this.header.nativeElement.textContent);
+    // console.log('Text Content of Paragraph:' + this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
-    console.log('ngDoCheck called');
+    // console.log('ngDoCheck called');
   }
   ngAfterContentInit() {
-    console.log('ngAfterContentInit called!');
-    console.log('Text Content of Paragraph:' + this.paragraph.nativeElement.textContent);
+    // console.log('ngAfterContentInit called!');
+    // console.log('Text Content of Paragraph:' + this.paragraph.nativeElement.textContent);
   }
   ngAfterContentChecked() {
-    console.log('ngAfterContentChecked called');
-    console.log('Text Content of Paragraph:' + this.paragraph.nativeElement.textContent);
+    // console.log('ngAfterContentChecked called');
+    // console.log('Text Content of Paragraph:' + this.paragraph.nativeElement.textContent);
 
   }
   ngAfterViewInit() {
-    console.log('ngAfterViewInit called!');
-    console.log('Text-Content:' + this.header.nativeElement.textContent);
+    // console.log('ngAfterViewInit called!');
+    // console.log('Text-Content:' + this.header.nativeElement.textContent);
   }
   ngAfterViewChecked() {
-    console.log('ngAfterViewChecked called');
+    // console.log('ngAfterViewChecked called');
   }
   ngOnDestroy() {
-    console.log('ngOnDestroy called!');
+    // console.log('ngOnDestroy called!');
   }
 }

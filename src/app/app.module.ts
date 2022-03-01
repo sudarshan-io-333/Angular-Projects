@@ -12,7 +12,13 @@ import { ServerElementComponent } from './server-element/server-element.componen
 import { GameControlComponent } from './game-control/game-control.component';
 import { OddComponent } from './odd/odd.component';
 import { EvenComponent } from './even/even.component'
+import { BasicHiglightDirective } from './highlight/BasicHighlight.Directive';
+import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
+import { UnlessDirective } from './unless.directive';
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
 // because its added by webpack which bundles our project automatically.
+
 
 @NgModule({
   declarations: [
@@ -25,7 +31,12 @@ import { EvenComponent } from './even/even.component'
     ServerElementComponent,
     GameControlComponent,
     OddComponent,
-    EvenComponent
+    EvenComponent,
+    BasicHiglightDirective,
+    BetterHighlightDirective,
+    UnlessDirective,
+    HomeComponent,
+    UserComponent
 
   ],
   imports: [
