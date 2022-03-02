@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/Server.component';
@@ -17,6 +18,7 @@ import { BetterHighlightDirective } from './better-highlight/better-highlight.di
 import { UnlessDirective } from './unless.directive';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
+
 // because its added by webpack which bundles our project automatically.
 
 
@@ -42,7 +44,8 @@ import { UserComponent } from './user/user.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    // FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

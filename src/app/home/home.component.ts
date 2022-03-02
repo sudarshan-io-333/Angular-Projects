@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { interval, Subscription,Observable } from 'rxjs';
+import { filter,map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       let count = 0;
       setInterval(() => {
         observer.next(count); // next method inform about updated data
-        if (count === 2) {
+        if (count === 5) {
           observer.complete(); // complete method complete the observable successfully after this no value will thrown.
         }
         //there is no need to unsubscribe when the observable complete successfully
@@ -36,13 +37,37 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000);
     });  
 
-    this.firstObsSubscription = customIntervalObservable.subscribe(data => {
+    //here we call map as a function inside of pipe and map in turn takes a function as an argument.
+    // every observable has a pipe method and its built into RxJS
+    //pipe method takes an unlimited amount of arguments and each operator imported from rxJs
+    // the line 44 - 46 replace in line 59 with customIntervalObservable
+
+    // customIntervalObservable.pipe(map((data: number) => {
+    //   return 'Round: ' + (data + 1);
+    // })); 
+
+
+  //   this.firstObsSubscription = customIntervalObservable.subscribe(data => {
+  //     console.log(data);
+  //   }, error => {
+  //     console.log(error);
+  //     alert(error.message);
+  //     }, () => {                  // this is anonymous simple for cleanup or show some msg after completing observable
+  //       console.log('Complete!');
+  //   });
+  // }
+    
+    this.firstObsSubscription = customIntervalObservable.pipe(filter(data => {
+      return data > 0;
+    }),map((data: number) => {
+      return 'Round: ' + (data + 1);
+    })).subscribe(data => {
       console.log(data);
     }, error => {
       console.log(error);
       alert(error.message);
-      }, () => {                  // this is anonymous simple for cleanup or show some msg after completing observable
-        console.log('Complete!');
+    }, () => {                  // this is anonymous simple for cleanup or show some msg after completing observable
+      console.log('Complete!');
     });
   }
 
