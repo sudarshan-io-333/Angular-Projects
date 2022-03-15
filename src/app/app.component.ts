@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError ,startWith} from 'rxjs/operators';
 import { Post } from './post.model';
 import { PostService } from './posts.service';
 import { Subscription } from 'rxjs';
@@ -11,9 +11,10 @@ import { Subscription } from 'rxjs';
 // import { UserService } from './user/user.service';
 // import { Subscription } from 'rxjs';
 // import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
-// import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 // import { NgForm } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',//selector is used to identify each component uniquely into the component tree
@@ -27,24 +28,52 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
+
   // Forms -Assignment
   // signupForm: FormGroup;
   // examArray = [''];
 
  //--------------------  Angular Material --------------------
 
+  
+  options: string[] = ['Angular', 'React', 'Vue'];
+  objectOptions = [
+    { name: 'Angular' },
+    { name: 'Angular Material' },
+    { name: 'React' },
+    { name: 'Vue' }
+  ];
+
+  displayFn(subject) {
+    return subject ? subject.name : undefined;
+ }
+
+myControl = new FormControl()
+  filteredOptions: Observable<string[]>;
+
+
+
+
+  
   // notifications = 2;
-  showSpinner = false;
+  // showSpinner = false;
+  selectedValue: string;
 
-  loadData() {
-    this.showSpinner = true;
-    setTimeout(( )=> {
-      this.showSpinner = false;
-    }, 5000);
+  // loadData() {
+  //   this.showSpinner = true;
+  //   setTimeout(( )=> {
+  //     this.showSpinner = false;
+  //   }, 5000);
+  // }
+
+  // opened = false;
+  // log(state) {
+  //   console.log(state);
+  // }
+
+  logChange(index) {
+    console.log(index);
   }
-
-
-
 
 
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-form-assignment',
@@ -9,6 +12,8 @@ import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@ang
 export class FormAssignmentComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
+
+
 
   public count: number =0;
   // fb: FormBuilder;
@@ -22,7 +27,7 @@ export class FormAssignmentComponent implements OnInit {
       //   'QuestionCategory': new FormControl(null, Validators.required),
       //   'marks': new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(5)])
       //   }),
-      'examName': new FormControl(null, [Validators.required, Validators.maxLength(30)]),
+      examName: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
       'examKey': new FormControl(null, [Validators.required, Validators.maxLength(30), Validators.minLength(6)]),
       'examCategory': new FormControl(null, Validators.required),
       'examDuration': new FormControl(null, [Validators.required, Validators.min(10)]),
@@ -70,7 +75,7 @@ export class FormAssignmentComponent implements OnInit {
 
   onDeleteDetails(i: number) {
     
-    if (this.count === 0) {
+    if (!this.count ) {
       this.disable = true;
     }
     else if(this.count > 0){
@@ -80,5 +85,39 @@ export class FormAssignmentComponent implements OnInit {
       // return (<FormArray>this.signupForm.get('examDetailSet')).controls.pop();
     }
   }
+
+  //  formObject = {
+
+  //   examName: this.signupForm.value.examName,
+  //   examKey: this.signupForm.value.examKey,
+  //   examCategory: this.signupForm.value.examCategory,
+  //    examDuration: this.signupForm.value.examDuration,
+  //    questionCategory: this.signupForm.value.examDetailSet.questionCategory,
+  //    marks: this.signupForm.value.examDetailSet.marks,
+  // } 
+
+
+
+//    formValue = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(this.signupForm.value);
+//   }, 2000);
+// })
+
+//   formContent = document.getElementById('formContent');
+
+//   fetchData() {
+//     this.formContent.innerText ='fetching data..';
+
+//     this.formValue.then(data => {
+//       console.log(data);
+//       this.formContent.innerText = JSON.stringify(data);
+//       console.log('formcontent', this.formContent);
+//     })
+
+//   }
+
+  // value = JSON.stringify(this.formValue);
+  
 }
 

@@ -5,17 +5,72 @@
 button{
     margin: 3rem;
 } */
-div{
+/* div{
     margin:3rem;
-}
+} */
+
+
+/*===============================================   Toolbar */
 
 /* The justify-content property aligns the flexible container's items when the items do not use 
 all available space on the main-axis (horizontally). */
 
-.navbar{
+/* .navbar{
     justify-content: space-between;
 }
 
 span{
     padding-right: 1rem;
+} */
+
+
+
+/* =====================================     side navbar  */
+
+/* mat-sidenav-container{
+    height: 100%;
 }
+
+mat-sidenav, mat-sidenav-content {
+    padding: 16px;
+}
+
+mat-sidenav{
+    background-color: lightcoral;
+    width: 200px;
+} */
+
+/* ==================================  Menu    ================= */
+
+/* .center{
+    margin:10rem;
+} */
+
+
+/* ==================================  gird-List  ================= */
+/* 
+mat-grid-tile{
+    background-color:lightblue;
+} */
+
+/*  ==================   Cards ================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

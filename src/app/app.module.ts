@@ -25,6 +25,13 @@ import { AuthInterceptorService } from './auth-interceptor.service';
 import { FormAssignmentComponent } from './Form-Assignment/form-assignment/form-assignment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { HeadersComponent } from './includes/headers/headers.component';
+import { ObservableComponent } from './observable/observable.component';
+import { ListComponent } from './observable/list/list.component';
+import { FromEventComponent } from './observable/from-event/from-event.component';
+import { IntervalComponent } from './observable/interval/interval.component';
+import { OfFromComponent } from './observable/of-from/of-from.component';
+import { ToArrayComponent } from './observable/to-array/to-array.component';
  
 // because its added by webpack which bundles our project automatically.
 
@@ -48,7 +55,14 @@ import { MaterialModule } from './material/material.module';
     UserComponent,
     ShortenPipe,
     FilterPipe,
-    FormAssignmentComponent
+    FormAssignmentComponent,
+    HeadersComponent,
+    ObservableComponent,
+    ListComponent,
+    FromEventComponent,
+    IntervalComponent,
+    OfFromComponent,
+    ToArrayComponent
 
   ],
   imports: [

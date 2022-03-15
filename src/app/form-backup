@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8">
 
-            <form [formGroup]="signupForm" (submit)="onSubmit()">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                 <h3>Create Exam</h3>
                 <!-- <div class="form-group">
                     <label for="examName">Exam Name</label>
@@ -11,32 +11,25 @@
                         enter exam name!
                     </span>
                 </div> -->
-                <div>
-                    <mat-form-field floatLabel="auto" appearance="fill">
-                        <mat-label>Exam Name</mat-label>
-                        <input matInput required id="text" formControlName="examName">
-                        <mat-error *ngIf="signupForm.get('examName').hasError('required')">Please Enter Exam</mat-error>
-                    </mat-form-field>
-                </div>
-                <!-- <div class="form-group">
+
+                <mat-form-field floatLabel="auto"  appearance="legacy" class="form-group">
+                    <mat-label >Exam Name</mat-label>
+                    <input matInput required id="text" formControlName="examName" class="form-control">
+                    <mat-hint align="end" color="warn">Please enter exam name!</mat-hint>
+                </mat-form-field>
+
+
+
+
+
+                <div class="form-group">
                     <label for="examKey">Exam Key</label>
                     <input type="text" id="examKey" formControlName="examKey" class="form-control">
                     <span *ngIf="!signupForm.get('examKey').valid && signupForm.get('examKey').touched" class="help-block">Please
                         enter a valid exam-key!
                     </span>
-                </div>  -->
-                <div>
-                    <mat-form-field floatLabel="auto" appearance="fill">
-                        <mat-label>Exam Key</mat-label>
-                        <input matInput required id="text" formControlName="examKey">
-                        <mat-hint align="end" color="warn">Please enter Key!</mat-hint>
-                    </mat-form-field>
                 </div>
-
-
-
-
-                <!-- <div class="form-group dropdown">
+                <div class="form-group dropdown">
                     <label>Exam Category</label>
                     <select formControlName="examCategory" class="form-control">
                         <option disabled>Select Category</option>
@@ -46,79 +39,53 @@
                     </select>
                     <span *ngIf="!signupForm.get('examCategory').valid && signupForm.get('examCategory').touched" class="help-block">Please
                         enter a exam-Category!</span>
-                </div> -->
-                <div>
-                    <mat-form-field>
-                        <mat-label> Exam Category</mat-label>
-                        <mat-select formControlName="examCategory">
-                            <mat-option disabled value="">Select Category</mat-option>
-                            <mat-option value="fresher">Fresher</mat-option>
-                            <mat-option value="experience">Experience </mat-option>
-                            <mat-option value="regular">Regular</mat-option>
-                        </mat-select>
-                    </mat-form-field>
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="examDuration">Exam Duration</label>
                     <input type="number" id="examDuration" formControlName="examDuration" class="form-control">
                     <span *ngIf="!signupForm.get('examDuration').valid && signupForm.get('examDuration').touched" class="help-block">Please
                         enter
                         a valid Duration!</span>
                 </div>
-                <hr> -->
-
-                <div>
-                    <mat-form-field floatLabel="auto" appearance="fill" class="form-group">
-                        <mat-label>Exam Duration</mat-label>
-                        <input matInput required type="number" id="examDuration" formControlName="examDuration">
-                        <!-- <span *ngIf="!signupForm.get('examDuration').valid && signupForm.get('examDuration').touched" class="help-block">Please
-                    enter
-                    a valid Duration!</span> -->
-                    </mat-form-field>
-                </div>
                 <hr>
-
 
                 <div formArrayName="examDetailSet">
                     <h3>Exam Details</h3>
                     <div [formGroupName]="i" *ngFor="let value of signupForm.get('examDetailSet')['controls'];
-                        let i=index;">
+                   let i=index;">
 
 
-                        <div>
-                            <mat-form-field>
-                                <mat-label>Question Category</mat-label>
-                                <mat-select formControlName="questionCategory">
-                                    <mat-option disabled value="">Select Category</mat-option>
-                                    <mat-option value="Aptitude">Aptitude</mat-option>
-                                    <mat-option value="SQL">SQL</mat-option>
-                                    <mat-option value="Programming">Programming</mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                        <div class="form-group dropdown">
+                            <label>Question Category</label>
+                            <select formControlName="questionCategory" class="form-control">
+                                <option disabled value="">Select Category</option>
+                                <option>Aptitude</option>
+                                <option>SQL</option>
+                                <option>Programming</option>
+                            </select>
                             <!-- <span *ngIf="!signupForm.get('examCategory').valid && signupForm.get('examCategory').touched" class="help-block">Please
                             enter a exam-Category!</span> -->
                         </div>
 
-                        <div>
-                            <mat-form-field>
-                                <mat-label>Section Marks</mat-label>
-                                <mat-select formControlName="marks">
-                                    <mat-option disabled value="">Select Section Marks</mat-option>
-                                    <mat-option value="1">1</mat-option>
-                                    <mat-option value="2">2</mat-option>
-                                    <mat-option value="3">3</mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                        <div class="form-group dropdown">
+                            <label>Section Marks</label>
+                            <select formControlName="marks" class="form-control">
+                                <option disabled value="">Select Section Marks</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
                             <!-- <span *ngIf="!signupForm.get('examCategory').valid && signupForm.get('examCategory').touched" class="help-block">Please
                                 enter a exam-Category!</span> -->
                         </div>
 
                         <div class="form-group">
-                            <button class="mat-raised-button" color="accent" mat-button type="button" (click)="onAddDetail()">Add
-                                more</button>
-                            <!-- </div> -->
-                            <!-- [disabled] ="!signupForm.examDetailSet.index === 1" -->
-                            <!-- <div class="form-group"> -->
+                            <button class="btn btn-primary" type="button" (click)="onAddDetail()">Add more</button>
+                        </div>
+                        <!-- [disabled] ="!signupForm.examDetailSet.index === 1" -->
+                        <div class="form-group">
                             <button class="btn btn-danger" type="button" (click)="onDeleteDetails(i)" [disabled]="disable">Delete</button>
 
                         </div>
@@ -162,41 +129,9 @@
                                             </div> -->
                 <!-- </div> -->
                 <hr>
-                <button class="mat-raised-button" color="primary" mat-button type="submit">Submit</button>
-                <!-- <button class="mat-raised-button" color="primary" (click)="fetchData()" type="button">fetch Data</button> -->
+                <button class="mat-raised-button" type="submit" >Submit</button>
 
             </form>
-            <hr>
         </div>
-    </div>
-</div>
-
-
-<div class="row col-md-12">
-    <h2>Exam Detail</h2>
-    <table class="table table-striped mt-3 ">
-        
-        <thead>
-            
-            <th>Name</th>
-            <th>Key</th>
-            <th>E-Category</th>
-            <th>Duration</th>
-            <th>Q-Category</th>
-            <th>Marks</th>
-        </thead>
-        <tbody>
-           <th> <tr>{{signupForm.value.examName}}</tr></th>
-            <th><tr>{{signupForm.value.examKey}} </tr></th>
-           <th> <tr>{{signupForm.value.examCategory}} </tr></th>
-            <th><tr>{{signupForm.value.examDuration}}</tr></th>
-           <th> <tr></tr></th>
-           <th><tr> {{signupForm.value.marks}}</tr></th>
-        </tbody>
-    </table>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-
     </div>
 </div>

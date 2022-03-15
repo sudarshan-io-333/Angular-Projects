@@ -1,19 +1,31 @@
-.container{
-    margin-top:30px;
+table, th, td {
+  border: 1px solid black;
+  margin:3rem;
+  border-bottom-color: black; 
+  text-align: center
 }
-
+tr,h2{
+     text-align: center
+}
+/* .container{
+    margin-top:30px;
+}*/
+/* 
 input.ng-invalid.ng-touched {
     border: 1px solid red;
-}
+}  */
 
-select.ng-invalid.ng-touched {
-    border: 1px solid red;
-}
-h3{
+/* select.ng-invalid.ng-touched {
+    border: 2px solid red;
+} */
+/* #m{
+    padding-right: 3rem
+} */
+/* h3{
 text-align: center;
-}
+}  */
 
-.example-form {
+/* .example-form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
@@ -21,4 +33,4 @@ text-align: center;
 
 .example-full-width {
   width: 100%;
-}
+} */

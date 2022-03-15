@@ -62,9 +62,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     }),map((data: number) => {
       return 'Round: ' + (data + 1);
     })).subscribe(data => {
-      console.log(data);
+      // console.log(data);
     }, error => {
-      console.log(error);
+      // console.log(error);
       alert(error.message);
     }, () => {                  // this is anonymous simple for cleanup or show some msg after completing observable
       console.log('Complete!');

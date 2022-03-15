@@ -1,3 +1,8 @@
+<app-headers></app-headers>
+<app-observable></app-observable>
+<!-- <div><app-form-assignment></app-form-assignment>  </div> -->
+
+
 <!-- ------------ ----------------- -------------- Angular Material ------ --------- ----------- -->
 
 <!-- Should be use only once in page -->
@@ -140,129 +145,240 @@
 <!-- Converting toolbar into navbar. Navbar typically consist of title on left
      and  a group of links on the right -->
 
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary" class="navbar">
     <div>Angular</div>
+    <div>
     <span>Home</span>
     <span>About</span>
     <span>Services</span>
-</mat-toolbar>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div><app-form-assignment></app-form-assignment>  </div> -->
- <!-- <!-===================   ========== Http - Firebase ====================--> 
+    </div>
+</mat-toolbar> -->
+
+<!-- Side Navbar -->
+<!-- 3 types of mode are over,push and side -->
+<!-- <mat-sidenav-container>
+    <mat-sidenav #sidenav (opened)="log('Opened')"
+     (closed)="log('Closed')"
+      mode="side" [(opened)]="opened">Sidenav</mat-sidenav>
+    <mat-sidenav-content>Main
+        <button (click)="opened = !opened">Toggle Opened</button>
+        <button (click)="sidenav.open()">Open</button>
+        <button (click)="sidenav.close()">Close</button>
+        <button (click)="sidenav.toggle()">Toggle</button>
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<!-- /* ================================== Menu ================= */ -->
+
+<!-- mat-menu element itself not rendered anything it should be triggered by button or any events -->
+<!-- X-position can take values before or after and y-position can take values above or below-->
+
+<!-- <mat-menu #appMenu ="matMenu" xPosition="after" yPosition="above">
+    <button mat-menu-item [matMenuTriggerFor] ="subMenu">FrontEnd</button>
+    <button mat-menu-item [matMenuTriggerFor] = "submenu1">BackEnd</button>
+</mat-menu>
+<button class="center" mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
+<mat-menu #subMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+</mat-menu>
+<mat-menu #submenu1="matMenu">
+    <button mat-menu-item>Java</button>
+    <button mat-menu-item>Python</button>
+</mat-menu> -->
+
+<!-- <mat-menu #lazyMenu="matMenu">
+    <ng-template matMenuContent let-name="name" let-hobbies="hobbies">
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Hobby is {{hobbies}}</button>
+    <button mat-menu-item>Log Out {{name}}</button>
+    </ng-template>
+</mat-menu>
+
+<button mat-raised-button
+ [matMenuTriggerData]= "{name: 'Sudarshan',hobbies:'Swimming'}"
+ [matMenuTriggerFor]="lazyMenu">
+ Sudarshan</button>
+
+<button 
+mat-raised-button 
+[matMenuTriggerData]="{ name: 'ProgrammersIO',hobbies:'Business'}"
+[matMenuTriggerFor]="lazyMenu">
+ProgrammersIO</button> -->
+
+
+<!-- =====================        List      =============================-->
+
+<!-- dense is used for small font-->
+<!-- <mat-list dense>
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-list-item>Item 3</mat-list-item>
+</mat-list> -->
+
+<!-- Navigation-list -->
+<!-- <mat-nav-list>
+    <a mat-list-item href="#">Home</a>
+    <a mat-list-item href="#">About</a>
+    <a mat-list-item href="#">Services</a>
+</mat-nav-list> -->
+
+<!-- 
+<mat-list>
+    <mat-list-item>
+        <mat-icon matListIcon>home</mat-icon>
+        <h3 matLine>Heading</h3>
+        <p matLine>Line</p>
+    </mat-list-item>
+    <mat-divider>
+    <mat-list-item>
+        <mat-icon matListIcon>folder</mat-icon>
+        <h3 matLine>Heading 2</h3>
+        <p matLine>Line 2</p>
+    </mat-list-item>
+</mat-list> -->
+
+<!-- ===================    ===========    Grid-List    ============== ===============-->
+
+<!-- <mat-grid-list cols="2" rowHeight="fit" style="height: 200px" gutterSize="10px">
+    <mat-grid-tile>Tile 1</mat-grid-tile>
+    <mat-grid-tile>Tile 2</mat-grid-tile>
+    <mat-grid-tile>Tile 3</mat-grid-tile>
+    <mat-grid-tile>Tile 4</mat-grid-tile>
+</mat-grid-list> -->
+
+<!-- /* ================== Expansion-Panel ================================= */ -->
+<!-- Mat-accordion has 2 expansion-panel children. -->
+<!-- hideToggle is used to hide the expansion arrows -->
+<!-- <mat-accordion multi= "true" hideToggle>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Angular Fundamentals
+        </mat-panel-title>
+        <mat-panel-description>
+            Total Duration : 3 Hours
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Cource Duration - 3 Weeks.</p>
+    <mat-action-row>
+        <button mat-button>Enroll</button>
+    </mat-action-row>
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Angular Material
+        </mat-panel-title>
+        <mat-panel-description>
+            Total Duration : 4 Hours
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Cource Duration - 3 Weeks.</p>
+    <mat-action-row>
+        <button mat-button>Enroll</button>
+    </mat-action-row>
+</mat-expansion-panel>
+</mat-accordion> -->
+
+<!-- ================================= Cards ================= -->
+
+<!-- <mat-card>
+    <mat-card-title>
+        Card title
+    </mat-card-title>
+    <mat-card-content>
+        This is the card content
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-flat-button>Login</button>
+    </mat-card-actions>
+</mat-card> -->
+
+<!--==============================   Tabs =====================-->
+<!-- selectedTabChange is an event for listening changes on tab -->
+<!-- <mat-tab-group #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)">
+    <mat-tab label="Angular">Angular Content</mat-tab>
+    <mat-tab label="React">React Content</mat-tab>
+    <mat-tab label="Vue">Vue Content</mat-tab>
+</mat-tab-group>
+{{tabRef.selectedIndex}} -->
+
+<!--==============================   Stepper =====================-->
+<!-- stepper has 2 types horizontal and vertical -->
+<!-- <mat-horizontal-stepper linear>
+    <mat-step label= "Shipping Address" completed=true>
+     <p>Shipping Address Details</p>
+    </mat-step>
+    <mat-step label="Billing Address" completed=false optional>
+        <p>Billing Address Details</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step label="Place Address" completed=false>
+        <p>Order Details</p>
+    </mat-step>
+</mat-horizontal-stepper> -->
+
+<!-- ==================  ===========    Input  ====================-->
+<!-- appearance has 4 types legacy,standard,fill and Outline-->
+<!-- <mat-form-field floatLabel="auto" hideRequiredMarker appearance= "legacy">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align="end">Min 5 Characters</mat-hint>
+</mat-form-field>
+
+
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput required>
+    <mat-hint align="end">Min 5 Characters</mat-hint>
+</mat-form-field> -->
+
+
+<!-- ==================  ===========  Select  ====================-->
+<!-- 
+<mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select [(value)]="selectedValue">
+        <mat-option>None</mat-option>
+        <mat-optgroup label="web">
+            <mat-option value="angular">Angular</mat-option>
+            <mat-option value="react">React </mat-option>
+            <mat-option value="vue">Vue</mat-option>
+        </mat-optgroup>
+        <mat-optgroup label="Mobile">
+            <mat-option value="ionic">Angular</mat-option>
+            <mat-option value="reactnative">React Native</mat-option>
+        </mat-optgroup>
+    </mat-select>
+</mat-form-field>
+{{selectedValue}} -->
+
+<!-- <form>
+    <mat-form-field>
+        <input type="text" matInput [matAutocomplete]="auto">
+        <mat-autocomplete
+         #auto = "matAutocomplete" 
+         [displayWith] ="displayFn"
+         [formControl] = "myControl">
+            <mat-option *ngFor= "let option of objectOptions" [value] = "option">
+                {{option.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form> -->
+
+
+
+
+
+<!-- <!-===================   ========== Http - Firebase ====================-->
 <!-- <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -314,8 +430,8 @@
         </div>
     </div>
 </div> -->
-       
-                
+
+
 
 
 <!--  -->
