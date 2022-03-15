@@ -1,11 +1,21 @@
 /* h3{
     color: darkblue;
 } */
-
-.container{
-    margin-top:30px;
+/* 
+button{
+    margin: 3rem;
+} */
+div{
+    margin:3rem;
 }
 
-input.ng-invalid.ng-touched {
-    border: 1px solid red;
+/* The justify-content property aligns the flexible container's items when the items do not use 
+all available space on the main-axis (horizontally). */
+
+.navbar{
+    justify-content: space-between;
+}
+
+span{
+    padding-right: 1rem;
 }

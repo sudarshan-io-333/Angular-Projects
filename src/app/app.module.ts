@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +18,14 @@ import { BetterHighlightDirective } from './better-highlight/better-highlight.di
 import { UnlessDirective } from './unless.directive';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
-
+import { ShortenPipe } from './shorten.pipe';
+import { FilterPipe } from './filter.pipe';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './auth-interceptor.service';
+import { FormAssignmentComponent } from './Form-Assignment/form-assignment/form-assignment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+ 
 // because its added by webpack which bundles our project automatically.
 
 
@@ -38,16 +45,26 @@ import { UserComponent } from './user/user.component';
     BetterHighlightDirective,
     UnlessDirective,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    ShortenPipe,
+    FilterPipe,
+    FormAssignmentComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // FormsModule
-    ReactiveFormsModule
+     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

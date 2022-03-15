@@ -1,0 +1,156 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8">
+            
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <h3>Create Exam</h3>
+                <div class="form-group">
+                    <label for="examName">Exam Name</label>
+                    <input type="text" id="examName" formControlName="examName" class="form-control" />
+                    <span *ngIf="!signupForm.get('examName').valid && signupForm.get('examName').touched" class="help-block">Please
+                        enter exam name!
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="examKey">Exam Key</label>
+                    <input type="text" id="examKey" formControlName="examKey" class="form-control">
+                    <span *ngIf="!signupForm.get('examKey').valid && signupForm.get('examKey').touched" class="help-block">Please
+                        enter a valid exam-key!
+                    </span>
+                </div>
+                <div class="form-group dropdown">
+                    <label>Exam Category</label>
+                    <select formControlName="examCategory" class="form-control">
+                        <option disabled>Select Category</option>
+                        <option>Fresher</option>
+                        <option>Experience</option>
+                        <option>Regular</option>
+                    </select>
+                    <span *ngIf="!signupForm.get('examCategory').valid && signupForm.get('examCategory').touched" class="help-block">Please
+                        enter a exam-Category!</span>
+                </div>
+                <div class="form-group">
+                    <label for="examDuration">Exam Duration</label>
+                    <input type="number" id="examDuration" formControlName="examDuration" class="form-control">
+                    <span *ngIf="!signupForm.get('examDuration').valid && signupForm.get('examDuration').touched" class="help-block">Please
+                        enter
+                        a valid Duration!</span>
+                </div>
+                <hr>
+
+                <div formArrayName="examDetailSet">
+                    <h3>Exam Details</h3>
+                  <div [formGroupName] ="i" *ngFor = "let value of signupForm.get('examDetailSet')['controls'];
+                   let i=index;">
+                    
+
+                    <div class="form-group dropdown">
+                        <label>Question Category</label>
+                        <select formControlName="questionCategory" class="form-control">
+                            <option disabled value="">Select Category</option>
+                            <option>Aptitude</option>
+                            <option>SQL</option>
+                            <option>Programming</option>
+                        </select>
+                        <!-- <span *ngIf="!signupForm.get('examCategory').valid && signupForm.get('examCategory').touched" class="help-block">Please
+                            enter a exam-Category!</span> -->
+                    </div>
+
+                        <div class="form-group dropdown">
+                            <label>Section Marks</label>
+                            <select formControlName="marks" class="form-control">
+                                <option disabled value="">Select Section Marks</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <!-- <span *ngIf="!signupForm.get('examCategory').valid && signupForm.get('examCategory').touched" class="help-block">Please
+                                enter a exam-Category!</span> -->
+                        </div>
+                        
+                            <div class="form-group">
+                                <button class="btn btn-primary"
+                                        type="button" 
+                                        (click)="onAddDetail()"
+                                        >Add more</button>
+                            </div>
+                            <!-- [disabled] ="!signupForm.examDetailSet.index === 1" -->
+                            <div class="form-group">
+                                <button 
+                                class="btn btn-danger" 
+                                type="button" 
+                                (click)="onDeleteDetails(index)"
+                                [disabled] ="disable"
+                                >Delete</button>
+                                
+                            </div>
+                           
+                  </div>
+                       <!--  -->
+                </div>
+                            <!-- <div>
+                                 <button 
+                                class="btn btn-default"
+                                type="button"
+                                >Add Marks</button>
+                            </div>  -->
+
+                <!-- <div 
+                                    class="form-group"
+                                    *ngFor= "let questionControl of getControls(); let i =index">
+                                    <label>Question Category</label>
+                                    <select 
+                                    [formControlName] = "i"
+                                    class="form-control">
+                                        <option disabled>Select Category</option>
+                                        <option>Aptitude</option>
+                                        <option>SQL</option>
+                                        <option>Programming</option>
+                                    </select> 
+                                        <span *ngIf="signupForm.get('QuestionCategory').touched" 
+                                            class="help-block">Please enter a QuestionCategory!</span> 
+                                </div> -->
+                <!-- 
+                                            <div class="form-group"
+                                                *ngFor="let markControl of getControls(); let i=index">
+                                                    <label for="marks">Marks</label>
+                                                    <input
+                                                    type="number" 
+                                                    id="marks" [formControlName]="i" class="form-control"> 
+                                                    <span 
+                                                    *ngIf="signupForm.get('marks').touched"
+                                                    class="help-block">Please enter a Marks!
+                                                    </span> 
+                                            </div> -->
+              <!-- </div> -->
+                <hr>
+                <button 
+                   class="mat-raised-button" 
+                   type="submit"
+                [disabled]="!signupForm.valid">Submit</button>
+                
+        </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

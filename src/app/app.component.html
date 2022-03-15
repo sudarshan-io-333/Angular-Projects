@@ -1,3 +1,325 @@
+<!-- ------------ ----------------- -------------- Angular Material ------ --------- ----------- -->
+
+<!-- Should be use only once in page -->
+<!-- <div class="mat-display-4">This is display 4</div>
+<div class="mat-display-3">This is display 3</div>
+<div class="mat-display-2">This is display 2</div>
+<div class="mat-display-1">This is display 1</div> -->
+
+<!-- Can be use multiple times in page -->
+<!-- <div class="mat-headline">This is a heading for h1</div>
+<div class="mat-title">This is a heading for h1</div>
+<div class="mat-subheading-2">This is a heading for h3</div>
+<div class="mat-subheading-1">This is a heading for h4</div> -->
+<!-- 
+<div class="mat-body-1">This is body text</div>
+<div class="mat-body-2">This is bold body text</div>
+<div class="mat-caption">This is caption text</div> -->
+
+<!-- <div class="mat-typography">
+<h1>This is a heading for h1</h1>
+<h2>This is a heading for h2</h2>
+<h3>This is a heading for h3</h3>
+<h4>This is a heading for h4</h4>
+</div> -->
+
+
+<!-- Buttons -->
+<!-- <div>
+    <button mat-button>Click me!</button>
+    <button mat-raised-button>Click me</button>
+    <button mat-flat-button>Click me!</button>
+    <button mat-stroked-button>Click me</button>
+</div> -->
+
+<!-- Circular buttons with default theme colour setup-->
+<!-- <div>
+    <button mat-icon-button>Icon</button>
+    <button mat-fab>Fab</button>
+    <button mat-mini-fab>Minifab!</button>
+</div> -->
+<!-- Button colors-->
+
+<!-- <div>
+    <button color="primary" mat-button>Primary!</button>
+    <button color="accent" mat-button>Accent</button>
+    <button color="warn" mat-button>Warn!</button>
+    <button color="primary" mat-raised-button>Primary!</button>
+    <button color="accent" mat-raised-button>Accent</button>
+    <button color="warn" mat-raised-button>Warn!</button>
+</div> -->
+
+<!-- To disable the background animation effect use disableRipple -->
+<!-- <button color="warn" disableRipple mat-button>Warn!</button> -->
+
+
+<!-- Toggle button -->
+<!-- <div> -->
+<!-- <mat-button-toggle>Toggle</mat-button-toggle> -->
+<!-- <mat-button-toggle #toggleBtn checked>Toggle</mat-button-toggle>
+{{toggleBtn.checked}} -->
+<!-- <mat-button-toggle disableRipple disabled>Toggle</mat-button-toggle>
+</div> -->
+
+
+<!-- <div>
+    <mat-button-toggle-group #toggleGroup = "matButtonToggleGroup" multiple>
+        <mat-button-toggle value="Angular">Angular</mat-button-toggle>
+        <mat-button-toggle value="React">React</mat-button-toggle>
+        <mat-button-toggle value="Vue">Vue</mat-button-toggle>
+    </mat-button-toggle-group>
+   {{toggleGroup.value}}
+</div> -->
+
+<!-- <div>
+    <mat-icon color="primary">grade</mat-icon>
+</div> -->
+
+
+<!-- Badge -->
+
+<!-- <div>
+    <span matBadge="5">Notifications</span>
+</div>
+
+<div>
+    <span matBadge="5" matBadgePosition="below before">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgePosition="below after">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgePosition="above before">Notifications</span>
+</div>
+
+<div>
+    <span matBadge="5" matBadgeSize="small">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgeSize="medium">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgeSize="large">Notifications</span>
+</div> -->
+
+<!-- <div>
+    <span matBadge="5" matBadgeColor="primary">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgeColor="accent">Notifications</span>
+</div>
+<div>
+    <span matBadge="5" matBadgeColor="warn" matBadgeOverlap="false">Notifications</span>
+</div> -->
+
+<!-- here we declare notifiaction=2 in app.ts and use property binding. -->
+
+<!-- matBadgeHidden is used to hide badge -->
+<!-- <div>
+    <span [matBadge] = "notifications" [matBadgeHidden] ="notifications === 0">Notifications</span>
+</div> -->
+
+
+<!-- =================        PROGRESS SPINNER            ================================ -->
+
+<!-- Mat-progress-spinner has value from 0 to 100 -->
+
+<!-- <mat-progress-spinner value="100"></mat-progress-spinner> -->
+
+
+<!-- In app.ts file we declare showSpinner property and loadData function -->
+<!-- <mat-spinner *ngIf="showSpinner"></mat-spinner>
+<button (click)="loadData()">Load Data</button> -->
+
+<!-- ============ ================  ToolBar          =================  -->
+
+<!-- <mat-toolbar color="primary">
+    <span>Angular</span>
+</mat-toolbar> -->
+
+<!-- Converting toolbar into navbar. Navbar typically consist of title on left
+     and  a group of links on the right -->
+
+<mat-toolbar color="primary">
+    <div>Angular</div>
+    <span>Home</span>
+    <span>About</span>
+    <span>Services</span>
+</mat-toolbar>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div><app-form-assignment></app-form-assignment>  </div> -->
+ <!-- <!-===================   ========== Http - Firebase ====================--> 
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" required ngModel name="title" />
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea class="form-control" id="content" required ngModel name="content"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!postForm.valid">
+                    Send Post
+                </button>
+            </form>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <button class="btn btn-primary" (click)="onFetchPosts()">
+                Fetch Posts
+            </button>
+            |
+            <button 
+            class="btn btn-danger" 
+            [disabled]="loadedPosts.length < 1" 
+            (click)="onClearPosts()">
+                Clear Posts
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <p *ngIf = "loadedPosts.length < 1 && !isFetching">No posts available!</p>
+            <ul class="list-group" *ngIf = "loadedPosts.length >= 1 && !isFetching">
+                <li class="list-group-item" *ngFor="let post of loadedPosts">
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.content}}</p>
+                </li>
+            </ul>
+            <p *ngIf ="isFetching && !error">Loading...</p>
+            <div class="alert alert-danger" *ngIf="error">
+               <h3>An error Occurred</h3> 
+               <p>{{ error }}</p>
+               <button class="btn btn-danger" (click)="onHandleError()">Okay</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+       
+                
+
+
+<!--  -->
+
 <!-- <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -233,7 +555,7 @@
 
 <!-- ----------------------------------Assignment 7 -->
 
-
+<!-- 
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -259,4 +581,29 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
+
+<!-- =======================   -------        PIPES    --------- =============             -->
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <input type="text" [(ngModel)]='filteredStatus'>
+            <br><br>
+            <h2>App Status : {{appStatus | async}} </h2>
+            <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+            <hr>
+            <ul class="list-group">
+                <li
+                    class="list-group-item"
+                    *ngFor = "let server of servers | filter:filteredStatus:'status'"
+                    [ngClass]="getStatusClasses(server)">
+                    <span
+                    class="badge">
+                    {{ server.status }}</span>
+                    <strong>{{ server.name | shorten:15 }}</strong> | {{ server.instanceType | uppercase }} 
+                     | {{ server.started | date:'fullDate'  | uppercase}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> -->

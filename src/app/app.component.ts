@@ -1,6 +1,12 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CustomValidators } from './custom-validators';
+import { HttpClient } from '@angular/common/http';
+// import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { map, catchError } from 'rxjs/operators';
+import { Post } from './post.model';
+import { PostService } from './posts.service';
+import { Subscription } from 'rxjs';
+// import { FormGroup, FormControl, Validators } from '@angular/forms';
+// import { CustomValidators } from './custom-validators';
 
 // import { UserService } from './user/user.service';
 // import { Subscription } from 'rxjs';
@@ -19,32 +25,197 @@ import { CustomValidators } from './custom-validators';
   // }
   // `]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
-  // -------------------------------   Assignment 7 ----------------
+  // Forms -Assignment
+  // signupForm: FormGroup;
+  // examArray = [''];
 
-  ProjectForm: FormGroup;
+ //--------------------  Angular Material --------------------
 
-  ngOnInit() {
-    this.ProjectForm = new FormGroup({
-      'projectName': new FormControl(
-        null,
-        [Validators.required, CustomValidators.invalidProjectName],
-        CustomValidators.asyncInvalidProjectName),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'projectStatus': new FormControl('critical')
+  // notifications = 2;
+  showSpinner = false;
+
+  loadData() {
+    this.showSpinner = true;
+    setTimeout(( )=> {
+      this.showSpinner = false;
+    }, 5000);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  // ==========================       Http - Firebase            =================
+
+  loadedPosts: Post[] = [];
+  isFetching = false;
+  error = null;
+
+  private errorSub: Subscription;
+
+  constructor(private http: HttpClient,
+              private postService: PostService) { }
+  
+  ngOnInit() { 
+
+    this.errorSub = this.postService.fetchPosts().subscribe(errorMessage => {
+      this.error = errorMessage;
+    });
+
+    // this.fetchPosts();
+    this.isFetching = true;
+    this.postService.fetchPosts().subscribe(
+      posts => {
+      this.isFetching = false;
+      this.loadedPosts = posts;
+      }, error => {
+        this.isFetching = false;
+      this.error = error.message;
+      // console.log(error);
     });
   }
+
+  onCreatePost(postData: Post)
+  {
+    this.postService.createAndStorePost(postData.title, postData.content);
+    //send Http request
+    // this.http
+    //   .post<{name :string}>('https://ng-complete-guide-2fb4c-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json',
+    //     postData
+    //   ).subscribe(responseData => {
+    //     console.log(responseData);
+    //   });
+
+    
+    
+  }
   
-  onSaveProject() {
-    console.log(this.ProjectForm.value);
+
+
+  onFetchPosts() {
+    
+    // this.fetchPosts();
+    // this.postService.fetchPosts();
+    this.isFetching = true;
+    this.postService.fetchPosts().subscribe(posts => {
+      this.isFetching = false;
+      this.loadedPosts = posts;
+    }, error => {
+      this.isFetching = false;
+      this.error = error.message;
+    });
   }
 
-  
+  onClearPosts() {
+    // Send Http request
+    this.postService.deletePost().subscribe(() => {
+      this.loadedPosts = [];
+    });
+  }
+
+
+  onHandleError() {
+    this.error = null;
+  }
+
+  ngOnDestroy() {
+    this.errorSub.unsubscribe();
 }
 
 
 
+  // private fetchPosts() {
+  //   this.isFetching = true;
+    // this.http
+    //   .get<{[key:string]: Post}>('https://ng-complete-guide-2fb4c-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
+    //   .pipe(map(responseData =>{
+    //     const postsArray : Post[] = [];
+    //     for (const key in responseData) {
+    //       if (responseData.hasOwnProperty(key)) {
+    //         postsArray.push({ ...responseData[key], id: key })
+    //       }
+    //     }
+    //     return postsArray;
+    //   }))
+    //   .subscribe(posts => {
+    //     this.isFetching = false;
+    //     this.loadedPosts = posts;
+    //   });
+  // }
+}
+
+
+  // -------------------------------  PIPES ----------------
+
+//   appStatus = new Promise((resolve, response) => {
+//     setTimeout(() => {
+//       resolve('stable');
+//     },2000);
+//   });
+
+
+
+
+//   servers = [
+//     {
+//       instanceType: 'medium',
+//       name: 'Production Server',
+//       status: 'stable',
+//       started: new Date(15, 1, 2017)
+//     },
+//     {
+//       instanceType: 'large',
+//       name: 'User Database',
+//       status: 'stable',
+//       started: new Date(15, 1, 2017)
+//     },
+//     {
+//       instanceType: 'small',
+//       name: 'Development Server',
+//       status: 'offline',
+//       started: new Date(15, 1, 2017)
+//     },
+//     {
+//       instanceType: 'small',
+//       name: 'Testing Environment Server',
+//       status: 'stable',
+//       started: new Date(15, 1, 2017)
+//     }
+//   ];
+
+//   filteredStatus = '';
+//   getStatusClasses(server: { instanceType: string, name: string, status: string,
+//     started: Date}) {
+//     return {
+//       'list-group-item-success': server.status === 'stable',
+//       'list-group-item-warning': server.status === 'offline',
+//       'list-group-item-danger': server.status === 'critical'
+//     };
+//   }
+
+//   onAddServer() {
+//     this.servers.push({
+//       instanceType: 'small',
+//       name: 'New Server',
+//       status: 'stable',
+//       started: new Date(15, 1, 2017)
+//     });
+//   }
+//  }
 
 
 
@@ -54,22 +225,24 @@ export class AppComponent implements OnInit {
 
 
 
+  // -------------------------------   Assignment 7 ----------------
 
+  // ProjectForm: FormGroup;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // ngOnInit() {
+  //   this.ProjectForm = new FormGroup({
+  //     'projectName': new FormControl(
+  //       null,
+  //       [Validators.required, CustomValidators.invalidProjectName],
+  //       CustomValidators.asyncInvalidProjectName),
+  //     'email': new FormControl(null, [Validators.required, Validators.email]),
+  //     'projectStatus': new FormControl('critical')
+  //   });
+  // }
+  
+  // onSaveProject() {
+  //   console.log(this.ProjectForm.value);
+  // }
 
 
 
