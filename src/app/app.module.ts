@@ -38,7 +38,15 @@ import { PluckComponent } from './observable/pluck/pluck.component';
 import { FilterComponent } from './observable/filter/filter.component';
 import { TapComponent } from './observable/tap/tap.component';
 import { TakeComponent } from './observable/take/take.component';
- 
+import { RetryComponent } from './observable/retry/retry.component';
+import { DebounceTimeComponent } from './observable/debounce-time/debounce-time.component';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { SubjectComponent } from './observable/subject/subject.component';
+import { Comp1Component } from './comps/comp1/comp1.component';
+import { Comp2Component } from './comps/comp2/comp2.component';
+import { Comp3Component } from './comps/comp3/comp3.component';
+import { ReplaySubjectComponent } from './replay-subject/replay-subject.component';
+import { AsyncSubjectComponent } from './observable/async-subject/async-subject.component';
 // because its added by webpack which bundles our project automatically.
 
 
@@ -74,7 +82,16 @@ import { TakeComponent } from './observable/take/take.component';
     PluckComponent,
     FilterComponent,
     TapComponent,
-    TakeComponent
+    TakeComponent,
+    RetryComponent,
+    DebounceTimeComponent,
+    SubjectComponent,
+    Comp1Component,
+    Comp2Component,
+    Comp3Component,
+    ReplaySubjectComponent,
+    AsyncSubjectComponent,
+    
 
   ],
   imports: [
@@ -84,7 +101,8 @@ import { TakeComponent } from './observable/take/take.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    LoadingBarModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -15,6 +15,11 @@ import { FilterComponent } from './observable/filter/filter.component';
 import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { TapComponent } from './observable/tap/tap.component';
 import { TakeComponent } from './observable/take/take.component';
+import { RetryComponent } from './observable/retry/retry.component';
+import { DebounceTimeComponent } from './observable/debounce-time/debounce-time.component';
+import { SubjectComponent } from './observable/subject/subject.component';
+import { ReplaySubjectComponent } from './replay-subject/replay-subject.component';
+import { AsyncSubjectComponent } from './observable/async-subject/async-subject.component';
 
 const routes: Routes = [
   {
@@ -29,7 +34,12 @@ const routes: Routes = [
       { path: 'pluck', component: PluckComponent },
       { path: 'filter', component: FilterComponent },
       { path: 'tap', component: TapComponent },
-      { path: 'take', component: TakeComponent}
+      { path: 'take', component: TakeComponent },
+      { path: 'retry', component: RetryComponent },
+      { path: 'debouncetime', component: DebounceTimeComponent },
+      { path: 'subject', component: SubjectComponent },
+      { path: 'replySubject', component: ReplaySubjectComponent },
+      { path: 'async-subject', component: AsyncSubjectComponent }
     ]
   },
   { path: '', component: HomeComponent},

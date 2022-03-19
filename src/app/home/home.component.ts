@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       // console.log(data);
     }, error => {
       // console.log(error);
-      alert(error.message);
+      // alert(error.message);
     }, () => {                  // this is anonymous simple for cleanup or show some msg after completing observable
       console.log('Complete!');
     });
