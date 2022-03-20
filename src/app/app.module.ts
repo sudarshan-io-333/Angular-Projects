@@ -47,6 +47,12 @@ import { Comp2Component } from './comps/comp2/comp2.component';
 import { Comp3Component } from './comps/comp3/comp3.component';
 import { ReplaySubjectComponent } from './replay-subject/replay-subject.component';
 import { AsyncSubjectComponent } from './observable/async-subject/async-subject.component';
+import { ConcatComponent } from './observable/concat/concat.component';
+import { MergeComponent } from './observable/merge/merge.component';
+import { MergeMapComponent } from './observable/merge-map/merge-map.component';
+import { ConcatMapComponent } from './observable/concat-map/concat-map.component';
+import { SwitchMapComponent } from './observable/switch-map/switch-map.component';
+import { ExhaustMapComponent } from './observable/exhaust-map/exhaust-map.component';
 // because its added by webpack which bundles our project automatically.
 
 
@@ -91,6 +97,12 @@ import { AsyncSubjectComponent } from './observable/async-subject/async-subject.
     Comp3Component,
     ReplaySubjectComponent,
     AsyncSubjectComponent,
+    ConcatComponent,
+    MergeComponent,
+    MergeMapComponent,
+    ConcatMapComponent,
+    SwitchMapComponent,
+    ExhaustMapComponent,
     
 
   ],

@@ -20,6 +20,11 @@ import { DebounceTimeComponent } from './observable/debounce-time/debounce-time.
 import { SubjectComponent } from './observable/subject/subject.component';
 import { ReplaySubjectComponent } from './replay-subject/replay-subject.component';
 import { AsyncSubjectComponent } from './observable/async-subject/async-subject.component';
+import { ConcatComponent } from './observable/concat/concat.component';
+import { MergeComponent } from './observable/merge/merge.component';
+import { MergeMapComponent } from './observable/merge-map/merge-map.component';
+import { ConcatMapComponent } from './observable/concat-map/concat-map.component';
+import { SwitchMapComponent } from './observable/switch-map/switch-map.component';
 
 const routes: Routes = [
   {
@@ -39,7 +44,12 @@ const routes: Routes = [
       { path: 'debouncetime', component: DebounceTimeComponent },
       { path: 'subject', component: SubjectComponent },
       { path: 'replySubject', component: ReplaySubjectComponent },
-      { path: 'async-subject', component: AsyncSubjectComponent }
+      { path: 'async-subject', component: AsyncSubjectComponent },
+      { path: 'concat', component: ConcatComponent },
+      { path: 'merge', component: MergeComponent },
+      { path: 'merge-map', component: MergeMapComponent },
+      { path: 'concat-map', component: ConcatMapComponent },
+      { path: 'switch-map', component: SwitchMapComponent }
     ]
   },
   { path: '', component: HomeComponent},
